@@ -4,6 +4,8 @@ import React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
+import { useMutation } from "@tanstack/react-query";
+import axios from "@/lib/axios";
 
 import {
   Form,
@@ -27,20 +29,35 @@ import {
 
 import { Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useSearchParams } from "next/navigation";
 
 interface ContactFormProps {
   className?: string;
 }
 
+interface ContactFormPayload extends ContactUsSchema {
+  gclid: string | null;
+}
+
 const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
+  const searchParams = useSearchParams();
+  const gclid = searchParams.get("gclid");
   const form = useForm<ContactUsSchema>({
     resolver: zodResolver(ContactUsValidator),
   });
 
+  const { mutate: sendForm } = useMutation({
+    mutationFn: async (values: ContactFormPayload) => {
+      const { data } = await axios.post(`contact`, values);
+      console.log(data);
+    },
+  });
+
   function onSubmit(values: ContactUsSchema) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+    sendForm({
+      gclid,
+      ...values,
+    });
   }
 
   const variants = {
@@ -104,7 +121,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
             </CollapsibleTrigger>
             <CollapsibleContent className="flex flex-col gap-4 mt-4 animate-accordion-down">
               <motion.div
-                initial={{ height: 0, opacity: 0, }}
+                initial={{ height: 0, opacity: 0 }}
                 animate={{ height: "auto", opacity: 100 }}
                 transition={{ duration: 0.5 }}
               >
