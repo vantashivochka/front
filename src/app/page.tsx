@@ -5,12 +5,15 @@ import Hero from "@/components/hero";
 import Prices from "@/components/prices/prices";
 import Reviews from "@/components/reviews/reviews";
 import Service from "@/components/service";
+import { Suspense } from "react";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <ContactForm />
+      <Suspense>
+        <ContactForm />
+      </Suspense>
       <Prices />
       <div
         style={{
@@ -23,7 +26,9 @@ export default function Home() {
         <Service />
       </div>
       <Faq />
-      <ContactForm className="mt-10 max-w-xl" />
+      <Suspense>
+        <ContactForm className="mt-10 max-w-xl" />
+      </Suspense>
     </>
   );
 }
