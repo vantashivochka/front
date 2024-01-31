@@ -33,7 +33,7 @@ const Navbar: React.FC = () => {
                   key={item.id}
                   className="text-slate-950 font-semibold text-lg hover:underline hover:text-muted-foreground transition-all underline-offset-8"
                 >
-                  <Link href={item.path}>{item.title}</Link>
+                  <a href={item.path}>{item.title}</a>
                 </li>
               ))}
             </ul>

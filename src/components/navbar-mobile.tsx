@@ -52,7 +52,7 @@ const NavbarMobile: React.FC = () => {
                 key={item.id}
                 className="text-slate-900 font-bold text-lg hover:underline hover:text-muted-foreground transition-all underline-offset-8"
               >
-                <Link href={item.path}>{item.title}</Link>
+                <a href={item.path}>{item.title}</a>
               </li>
             ))}
           </ul>
