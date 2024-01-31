@@ -1,45 +1,34 @@
-export interface GarbagePriceListItem {
+export interface PriceListItem {
   id: number;
   title: string;
-  size: string;
+  description?: string;
   price: number;
 }
 
-export interface CargoPriceListItem {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-}
-
-export const GARBAGE_PRICE_LIST: GarbagePriceListItem[] = [
+export const GARBAGE_PRICE_LIST: PriceListItem[] = [
   {
     id: 1,
     title: "Газель (0,5 т.)",
-    size: "2x3 м",
     price: 600,
   },
   {
     id: 2,
     title: "Газель (2 т.)",
-    size: "2x4 м",
     price: 600,
   },
   {
     id: 3,
     title: "ЗІЛ (5 т.)",
-    size: "2x2.5 м",
     price: 2000,
   },
   {
     id: 4,
     title: "КамАЗ (10 т.)",
-    size: "2x3 м",
     price: 3200,
   },
 ];
 
-export const CARGO_PRICE_LIST: CargoPriceListItem[] = [
+export const CARGO_PRICE_LIST: PriceListItem[] = [
   {
     id: 1,
     title: "Міні Бус",

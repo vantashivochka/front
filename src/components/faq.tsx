@@ -18,7 +18,7 @@ const Faq: React.FC = () => {
         <Accordion type="multiple">
           {FAQ.map((faq) => (
             <AccordionItem value={faq.id + "item"} key={faq.id}>
-              <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
+              <AccordionTrigger className="text-left font-normal">{faq.question}</AccordionTrigger>
               <AccordionContent>{faq.answer}</AccordionContent>
             </AccordionItem>
           ))}

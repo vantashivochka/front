@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import {
   Collapsible,
   CollapsibleContent,
@@ -44,12 +45,14 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
   const gclid = searchParams.get("gclid");
   const form = useForm<ContactUsSchema>({
     resolver: zodResolver(ContactUsValidator),
+    defaultValues: {
+      category: "cargo",
+    },
   });
 
-  const { mutate: sendForm } = useMutation({
+  const { mutate: sendForm, isPending: isSending } = useMutation({
     mutationFn: async (values: ContactFormPayload) => {
       const { data } = await axios.post(`contact`, values);
-      console.log(data);
     },
   });
 
@@ -114,16 +117,51 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
               </FormItem>
             )}
           />
+          <FormField
+            control={form.control}
+            name="category"
+            render={({ field }) => (
+              <FormItem className="space-y-3">
+                <FormLabel>Тип перевезення</FormLabel>
+                <FormControl>
+                  <RadioGroup
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                    className="flex flex-col space-y-1"
+                  >
+                    <FormItem className="flex items-center space-x-3 space-y-0">
+                      <FormControl>
+                        <RadioGroupItem value="cargo" />
+                      </FormControl>
+                      <FormLabel className="font-normal">
+                        Грузові перевезення
+                      </FormLabel>
+                    </FormItem>
+                    <FormItem className="flex items-center space-x-3 space-y-0">
+                      <FormControl>
+                        <RadioGroupItem value="garbage" />
+                      </FormControl>
+                      <FormLabel className="font-normal">
+                        Вивіз сміття
+                      </FormLabel>
+                    </FormItem>
+                  </RadioGroup>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
           <Collapsible>
             <CollapsibleTrigger className="text-sm text-muted-foreground inline-flex items-center text-start gap-1 hover:text-gray-800 transition-colors">
               <Plus className="w-4 h-4" />
               Вказати додаткову інформацію (не обов&apos;язково)
             </CollapsibleTrigger>
-            <CollapsibleContent className="flex flex-col gap-4 mt-4 animate-accordion-down">
+            <CollapsibleContent>
               <motion.div
                 initial={{ height: 0, opacity: 0 }}
                 animate={{ height: "auto", opacity: 100 }}
                 transition={{ duration: 0.5 }}
+                className="flex flex-col gap-4 mt-4"
               >
                 <FormField
                   control={form.control}
@@ -176,7 +214,9 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
               </motion.div>
             </CollapsibleContent>
           </Collapsible>
-          <Button type="submit">Замовити дзвінок</Button>
+          <Button type="submit" isLoading={isSending}>
+            Замовити дзвінок
+          </Button>
         </motion.form>
       </Form>
     </section>

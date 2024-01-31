@@ -1,9 +1,9 @@
 "use client";
 
-import { GarbagePriceListItem } from "@/config/price-list";
+import { PriceListItem } from "@/config/price-list";
 import { ColumnDef } from "@tanstack/react-table";
 
-export const garbageColumns: ColumnDef<GarbagePriceListItem>[] = [
+export const garbageColumns: ColumnDef<PriceListItem>[] = [
   {
     accessorKey: "title",
     header: "Машина",

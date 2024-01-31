@@ -14,7 +14,7 @@ const Cities: React.FC = () => {
           {CITIES.map((city, index) => (
             <li
               key={index}
-              className="inline-flex items-center gap-2 font-bold w-full mx-auto"
+              className="inline-flex items-center gap-2 w-full mx-auto"
             >
               <Building2 aria-hidden className="text-muted-foreground" />
               <span>{city}</span>

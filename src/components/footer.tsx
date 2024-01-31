@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
             (063) 394-50-95
           </a>
           <a
-            href="tel:+380633945095"
+            href="tel:+380994162272"
             className={cn(
               buttonVariants({ variant: "outline" }),
               "flex items-center gap-2 font-semibold text-lg md:text-xl"

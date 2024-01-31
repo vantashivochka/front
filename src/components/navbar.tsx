@@ -30,7 +30,7 @@ const Navbar: React.FC = () => {
               {MENU.map((item) => (
                 <li
                   key={item.id}
-                  className="text-primary font-semibold text-lg hover:underline hover:text-muted-foreground transition-all underline-offset-8"
+                  className="text-slate-950 font-semibold text-lg hover:underline hover:text-muted-foreground transition-all underline-offset-8"
                 >
                   <Link href={item.path}>{item.title}</Link>
                 </li>

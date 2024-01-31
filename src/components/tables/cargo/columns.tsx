@@ -1,9 +1,9 @@
 "use client";
 
-import { CargoPriceListItem } from "@/config/price-list";
+import { PriceListItem } from "@/config/price-list";
 import { ColumnDef } from "@tanstack/react-table";
 
-export const cargoColumns: ColumnDef<CargoPriceListItem>[] = [
+export const cargoColumns: ColumnDef<PriceListItem>[] = [
   {
     accessorKey: "title",
     header: "Машина",

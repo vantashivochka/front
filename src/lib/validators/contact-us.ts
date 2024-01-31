@@ -9,6 +9,9 @@ export const ContactUsValidator = z.object({
     .min(8, "Будь ласка, вкажіть ваш телефон повністю."),
   city: z.string().optional(),
   type: z.string().optional(),
+  category: z.enum(["cargo", "garbage"], {
+    required_error: "Будь ласка, оберіть тип перевезення.",
+  }),
   message: z.string().optional(),
 });
 
