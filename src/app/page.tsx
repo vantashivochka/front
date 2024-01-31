@@ -5,6 +5,10 @@ import Hero from "@/components/hero";
 import Prices from "@/components/prices/prices";
 import Reviews from "@/components/reviews/reviews";
 import Service from "@/components/service";
+import { buttonVariants } from "@/components/ui/button";
+import MaxWidthWrapper from "@/components/ui/max-width-wrapper";
+import { cn } from "@/lib/utils";
+import { ArrowUp } from "lucide-react";
 import { Suspense } from "react";
 
 export default function Home() {
@@ -26,9 +30,17 @@ export default function Home() {
         <Service />
       </div>
       <Faq />
-      <Suspense>
-        <ContactForm className="mt-10 max-w-xl" />
-      </Suspense>
+      <section className="my-10">
+        <MaxWidthWrapper className="flex justify-center">
+          <a
+            href="/#contact-us"
+            className={cn(buttonVariants({ size: "lg" }), "group inline-flex items-center gap-2")}
+          >
+            <ArrowUp className="group-hover:animate-bounce transition-transform w-4 h-4" />
+            Замовити дзвінок
+          </a>
+        </MaxWidthWrapper>
+      </section>
     </>
   );
 }
