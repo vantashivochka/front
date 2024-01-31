@@ -30,7 +30,7 @@ import {
 
 import { Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 interface ContactFormProps {
   className?: string;
@@ -41,6 +41,7 @@ interface ContactFormPayload extends ContactUsSchema {
 }
 
 const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const gclid = searchParams.get("gclid");
   const form = useForm<ContactUsSchema>({
@@ -53,6 +54,11 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
   const { mutate: sendForm, isPending: isSending } = useMutation({
     mutationFn: async (values: ContactFormPayload) => {
       const { data } = await axios.post(`contact`, values);
+
+      return data;
+    },
+    onSuccess: () => {
+      router.push("/thank-you");
     },
   });
 

@@ -8,16 +8,17 @@ import { MENU } from "@/config/menu";
 
 const Navbar: React.FC = () => {
   return (
-    <header>
-      <MaxWidthWrapper>
+    <MaxWidthWrapper>
+      <header>
         <div className="py-4 px-2 flex justify-between items-center border-b border-gray-200">
-          <div className="flex items-center gap-4 max-w-xs">
-            <Image
-              src={logo}
-              height={80}
-              width={80}
-              alt="Вантажівочка логотип"
-            />
+          <div className="flex items-center gap-2 xs:gap-4 max-w-xs">
+            <Link href="/" className="block relative h-16 w-20 xs:w-28">
+              <Image
+                src={logo}
+                fill
+                alt="Вантажівочка логотип"
+              />
+            </Link>
             <div className="flex flex-col gap-0.5">
               <span className="font-bold uppercase">Вантажівочка</span>
               <span className="hidden xs:inline text-sm text-muted-foreground">
@@ -39,8 +40,8 @@ const Navbar: React.FC = () => {
           </nav>
           <NavbarMobile />
         </div>
-      </MaxWidthWrapper>
-    </header>
+      </header>
+    </MaxWidthWrapper>
   );
 };
 

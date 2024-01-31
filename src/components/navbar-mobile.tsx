@@ -30,12 +30,13 @@ const NavbarMobile: React.FC = () => {
       <SheetContent>
         <SheetHeader className="flex items-center">
           <div className="flex items-center gap-2">
-            <Image
-              src={logo}
-              width={60}
-              height={60}
-              alt="Вантажівочка логотип"
-            />
+            <Link href="/" className="flex relative h-14 w-20">
+              <Image
+                src={logo}
+                fill
+                alt="Вантажівочка логотип"
+              />
+            </Link>
             <div className="flex flex-col gap-0.5 max-w-xs w-full text-start">
               <span className="font-bold uppercase text-sm">Вантажівочка</span>
               <span className="text-xs font-medium text-muted-foreground">
