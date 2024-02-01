@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
-import "./globals.css";
-import { cn } from "@/lib/utils";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import Providers from "@/components/providers";
-import axios from "axios";
+import Providers from "@/components/providers/providers";
+import { Toaster } from "sonner";
+import { cn } from "@/lib/utils";
+import type { Metadata } from "next";
+import "./globals.css";
+import Script from "next/script";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -13,7 +14,31 @@ export const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "Вантажівочка - грузоперевезення та вивіз сміття",
+  title: "Послуги Вантажівочка – Вантажні послуги 24/7",
+  description:
+    "Вантажні перевезення та вивіз сміття по м.Київ та Київській області",
+  openGraph: {
+    title: "Вантажівочка - грузоперевезення та вивіз сміття",
+    images: [
+      {
+        url: "/og-thumbnail.jpg",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Вантажівочка - грузоперевезення та вивіз сміття",
+    description:
+      "Вантажні перевезення та вивіз сміття по м.Київ та Київській області",
+    images: ["/og-thumbnail.jpg"],
+    creator: "@denvudd",
+  },
+  creator: "@denvudd",
+  applicationName: "Vantazhivochka",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function RootLayout({
@@ -23,9 +48,26 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=AW-11248125481"
+        async
+        strategy="afterInteractive"
+        id="ga_analytics"
+      ></Script>
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+  
+        gtag("config", "AW-11248125481");
+        `}
+      </Script>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased bg-slate-50 flex flex-col",
+          "min-h-screen bg-background font-sans antialiased bg-slate-50 dark:bg-slate-900 flex flex-col",
           fontSans.variable
         )}
       >
@@ -33,6 +75,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
+          <Toaster richColors />
         </Providers>
       </body>
     </html>

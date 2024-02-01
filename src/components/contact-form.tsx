@@ -88,7 +88,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
         <motion.form
           onSubmit={form.handleSubmit(onSubmit)}
           className={cn(
-            "flex flex-col gap-4 md:max-w-md md:w-full md:mx-auto mx-4 bg-secondary rounded-md px-4 py-6 border border-gray-200",
+            "flex flex-col gap-4 md:max-w-md md:w-full md:mx-auto mx-4 bg-secondary rounded-md px-4 py-6 border border-gray-200 dark:border-gray-500",
             className
           )}
           initial="hidden"
@@ -158,7 +158,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
             )}
           />
           <Collapsible>
-            <CollapsibleTrigger className="text-sm text-muted-foreground inline-flex items-center text-start gap-1 hover:text-gray-800 transition-colors">
+            <CollapsibleTrigger className="text-sm text-muted-foreground inline-flex items-center text-start gap-1 hover:text-gray-800 dark:hover:text-gray-300 transition-colors">
               <Plus className="w-4 h-4" />
               Вказати додаткову інформацію (не обов&apos;язково)
             </CollapsibleTrigger>

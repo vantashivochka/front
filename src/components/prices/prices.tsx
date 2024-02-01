@@ -32,7 +32,7 @@ const Prices: React.FC = async () => {
   const garbageList = await getList("garbage");
 
   return (
-    <section className="border-t py-10 border-gray-200 mt-10" id="price">
+    <section className="border-t py-10 border-gray-200 dark:border-gray-500 mt-10" id="price">
       <MaxWidthWrapper>
         <div className="flex flex-col gap-4">
           <div className="flex items-center flex-col sm:flex-row justify-center gap-4">
