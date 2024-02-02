@@ -35,6 +35,7 @@ export const metadata: Metadata = {
   },
   creator: "@denvudd",
   applicationName: "Vantazhivochka",
+  metadataBase: new URL("https://www.vantazhivochka.com/"),
   robots: {
     index: false,
     follow: false,
