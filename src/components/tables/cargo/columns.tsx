@@ -12,7 +12,11 @@ export const cargoColumns: ColumnDef<PriceListItem>[] = [
     accessorKey: "price",
     header: "Ціна",
     cell: ({ row }) => {
-      return <span className="font-medium">{`${row.getValue("price")}₴ + 200₴ вантажівник`}</span>
+      return (
+        <span className="font-medium">{`${row.getValue(
+          "price"
+        )}₴ + 200₴/год.`}</span>
+      );
     },
   },
 ];

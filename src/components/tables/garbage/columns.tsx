@@ -12,7 +12,7 @@ export const garbageColumns: ColumnDef<PriceListItem>[] = [
     accessorKey: "price",
     header: "Ціна",
     cell: ({ row }) => {
-      return <span className="font-medium">{`${row.getValue("price")}₴ + 100₴ вантажівник`}</span>;
+      return <span className="font-medium">{`${row.getValue("price")}₴ + 250₴/куб.`}</span>;
     },
   },
 ];
