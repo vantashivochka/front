@@ -7,6 +7,8 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import "./globals.css";
 import Script from "next/script";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
+import MouseflowAnalytics from "@/components/MouseflowAnalytics";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -49,23 +51,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=AW-11248125481"
-        async
-        strategy="afterInteractive"
-        id="ga_analytics"
-      ></Script>
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-          dataLayer.push(arguments);
-        }
-        gtag("js", new Date());
-  
-        gtag("config", "AW-11248125481");
-        `}
-      </Script>
+      <GoogleAnalytics />
+      <MouseflowAnalytics />
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased bg-slate-50 dark:bg-slate-900 flex flex-col",
