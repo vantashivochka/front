@@ -6,7 +6,7 @@ const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
     <>
       <Script id="google-conversion">
         {`
-            gtag('event', 'conversion', {'send_to': 'AW-11248125481/JIEICNbGq_kYEKmMw_Mp'});
+            gtag('event', 'conversion', {'send_to': 'AW-11248125481/V9YXCMSEt48ZEKmMw_Mp'});
         `}
       </Script>
       {children}

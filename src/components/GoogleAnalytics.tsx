@@ -12,12 +12,10 @@ const GoogleAnalytics = () => {
       <Script id="google-analytics" strategy="afterInteractive">
         {`
             window.dataLayer = window.dataLayer || [];
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag("js", new Date());
-        
-            gtag("config", "AW-11248125481");
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+          
+            gtag('config', 'AW-11248125481');
         `}
       </Script>
     </>
