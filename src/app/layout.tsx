@@ -6,9 +6,7 @@ import { Toaster } from "sonner";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import "./globals.css";
-import Script from "next/script";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
-import MouseflowAnalytics from "@/components/MouseflowAnalytics";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -51,8 +49,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <GoogleAnalytics />
-      <MouseflowAnalytics />
+      <GoogleTagManager gtmId="GTM-WF53G2GB" />
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased bg-slate-50 dark:bg-slate-900 flex flex-col",
