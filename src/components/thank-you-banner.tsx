@@ -5,7 +5,11 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "./ui/button";
 
-const ThankYoubanner: React.FC = () => {
+interface ThankYoubannerProps {
+  type: "garbage" | "main";
+}
+
+const ThankYoubanner: React.FC<ThankYoubannerProps> = ({ type }) => {
   return (
     <MaxWidthWrapper className="flex flex-col flex-1 h-full py-10">
       <div className="flex flex-col h-full flex-1 items-center justify-center gap-4 max-w-md w-full mx-auto">
@@ -20,8 +24,11 @@ const ThankYoubanner: React.FC = () => {
           </p>
         </div>
         <Link
-          href="/"
-          className={cn(buttonVariants(), "inline-flex items-center gap-2 group")}
+          href={type === "garbage" ? "/garbage" : "/"}
+          className={cn(
+            buttonVariants(),
+            "inline-flex items-center gap-2 group"
+          )}
         >
           <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition" />
           Повернутись на головну
