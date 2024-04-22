@@ -25,7 +25,7 @@ const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
       >
         <Providers>
           <Navbar />
-          <main>{children}</main>
+          {children}
           <Footer />
           <Toaster richColors />
         </Providers>
