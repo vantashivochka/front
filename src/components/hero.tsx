@@ -47,7 +47,7 @@ const Hero: React.FC = () => {
                 viewport={{ once: true, amount: 0.2 }}
                 className="text-3xl md:text-4xl font-bold tracking-tight"
               >
-                Грузоперевезення та вивіз сміття в{" "}
+                Грузоперевезення в{" "}
                 <span className="text-blue-600">м. Київ</span> та{" "}
                 <span className="text-blue-600">Київській області</span>
               </motion.h1>

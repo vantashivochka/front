@@ -12,7 +12,7 @@ const Navbar: React.FC = () => {
   return (
     <MaxWidthWrapper>
       <header>
-        <div className="py-4 px-2 flex justify-between items-center border-b border-gray-200 border-gray-500">
+        <div className="py-4 px-2 flex justify-between items-center border-b border-gray-500">
           <div className="flex items-center gap-2 xs:gap-4 max-w-xs">
             <Link href="/" className="block relative h-16 w-20 xs:w-28">
               <Image
@@ -30,8 +30,8 @@ const Navbar: React.FC = () => {
             </Link>
             <div className="flex flex-col gap-0.5">
               <span className="font-bold uppercase">Вантажівочка</span>
-              <span className="hidden xs:inline text-sm text-muted-foreground">
-                Грузоперевезення та вивіз сміття у м. Київ
+              <span className="hidden xs:inline text-sm text-muted-foreground min-w-[220px]">
+                Грузоперевезення у м. Київ та області
               </span>
             </div>
           </div>

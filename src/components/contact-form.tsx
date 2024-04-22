@@ -123,40 +123,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
               </FormItem>
             )}
           />
-          <FormField
-            control={form.control}
-            name="category"
-            render={({ field }) => (
-              <FormItem className="space-y-3">
-                <FormLabel>Тип перевезення</FormLabel>
-                <FormControl>
-                  <RadioGroup
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                    className="flex flex-col space-y-1"
-                  >
-                    <FormItem className="flex items-center space-x-3 space-y-0">
-                      <FormControl>
-                        <RadioGroupItem value="cargo" />
-                      </FormControl>
-                      <FormLabel className="font-normal">
-                        Грузові перевезення
-                      </FormLabel>
-                    </FormItem>
-                    <FormItem className="flex items-center space-x-3 space-y-0">
-                      <FormControl>
-                        <RadioGroupItem value="garbage" />
-                      </FormControl>
-                      <FormLabel className="font-normal">
-                        Вивіз сміття
-                      </FormLabel>
-                    </FormItem>
-                  </RadioGroup>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+
           <Collapsible>
             <CollapsibleTrigger className="text-sm text-muted-foreground inline-flex items-center text-start gap-1 hover:text-gray-800 dark:hover:text-gray-300 transition-colors">
               <Plus className="w-4 h-4" />
@@ -177,7 +144,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
                       <FormLabel>Тип вантажу</FormLabel>
                       <FormControl>
                         <Input
-                          placeholder="Наприклад, меблі або сміття"
+                          placeholder="Наприклад, меблі або коробки"
                           {...field}
                         />
                       </FormControl>

@@ -29,7 +29,6 @@ export default function Home() {
         <Reviews />
         <Service />
       </div>
-      <Faq />
       <section className="my-10">
         <MaxWidthWrapper className="flex justify-center">
           <a

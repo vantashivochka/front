@@ -46,7 +46,7 @@ const NavbarMobile: React.FC = () => {
             <div className="flex flex-col gap-0.5 max-w-xs w-full text-start">
               <span className="font-bold uppercase text-sm">Вантажівочка</span>
               <span className="text-xs font-medium text-muted-foreground">
-                Грузоперевезення та вивіз сміття у м. Київ
+                Грузоперевезення у м. Київ та області
               </span>
             </div>
           </div>
