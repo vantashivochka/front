@@ -1,54 +1,21 @@
-import { Inter as FontSans } from "next/font/google";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
+import React from "react";
+import { GoogleTagManager } from "@next/third-parties/google";
+import "./globals.css";
 import Providers from "@/components/providers/providers";
 import { Toaster } from "sonner";
+import Footer from "@/components/footer";
+import Navbar from "@/components/navbar";
 import { cn } from "@/lib/utils";
-import type { Metadata } from "next";
-import "./globals.css";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { Inter as FontSans } from "next/font/google";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
 });
 
-export const metadata: Metadata = {
-  title: "Послуги Вантажівочка – Вантажні послуги 24/7",
-  description:
-    "Вантажні перевезення по м.Київ та Київській області",
-  openGraph: {
-    title: "Вантажівочка - грузоперевезення по м.Київ та Київській області",
-    images: [
-      {
-        url: "/og-thumbnail.jpg",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Вантажівочка - грузоперевезення по м.Київ та Київській області",
-    description:
-      "Вантажні перевезення по м.Київ та Київській області",
-    images: ["/og-thumbnail.jpg"],
-    creator: "@denvudd",
-  },
-  creator: "@denvudd",
-  applicationName: "Vantazhivochka",
-  metadataBase: new URL("https://www.vantazhivochka.com/"),
-  robots: {
-    index: false,
-    follow: false,
-  },
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
-    <html lang="en">
+    <html lang="ua">
       <GoogleTagManager gtmId="GTM-WF53G2GB" />
       <body
         className={cn(
@@ -58,11 +25,13 @@ export default function RootLayout({
       >
         <Providers>
           <Navbar />
-          {children}
+          <main>{children}</main>
           <Footer />
           <Toaster richColors />
         </Providers>
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;
